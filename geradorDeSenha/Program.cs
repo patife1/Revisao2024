@@ -8,12 +8,12 @@ class GeradorDeSenhas
     {
         
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.WriteLine("=======================================");
+        Console.WriteLine(".......................................");
         Console.WriteLine("       Gerador de Senhas 2.0");
-        Console.WriteLine("=======================================");
+        Console.WriteLine(".......................................");
         Console.ResetColor();
 
-        // Vai executar
+        // vai executar
         ExecutarPrograma();
     }
 
@@ -30,11 +30,12 @@ class GeradorDeSenhas
             int tamanhoSenha = 0;
             while (tamanhoSenha <= 0)
             {
+                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("Informe o tamanho da senha:");
-                if (!int.TryParse(Console.ReadLine(), out tamanhoSenha) || tamanhoSenha <= 0)
+                if (!int.TryParse(Console.ReadLine(), out tamanhoSenha) || tamanhoSenha <= 3)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Por favor, insira um número válido maior que 0.");
+                    Console.WriteLine("Por favor, insira um número válido maior que 4.");
                     Console.ResetColor();
                     tamanhoSenha = 0; // reinicia o processo
                 }
