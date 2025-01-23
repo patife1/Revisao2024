@@ -6,9 +6,14 @@ class GeradorDeSenhas
 {
     static void Main()
     {
-        Console.WriteLine("Gerador de Senhas 2.0");
+        
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.WriteLine("=======================================");
+        Console.WriteLine("       Gerador de Senhas 2.0");
+        Console.WriteLine("=======================================");
+        Console.ResetColor();
 
-        // vai executar ne
+        // Vai executar
         ExecutarPrograma();
     }
 
@@ -16,30 +21,35 @@ class GeradorDeSenhas
     {
         while (true)
         {
-            Console.Clear();  
+            Console.WriteLine();  // p dar espaço
+            Console.WriteLine();
+
+            
+            AnimacaoCarregando();
+
             int tamanhoSenha = 0;
             while (tamanhoSenha <= 0)
             {
                 Console.WriteLine("Informe o tamanho da senha:");
                 if (!int.TryParse(Console.ReadLine(), out tamanhoSenha) || tamanhoSenha <= 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Por favor, insira um número válido maior que 0.");
-                    tamanhoSenha = 0; // reinicia o trem
+                    Console.ResetColor();
+                    tamanhoSenha = 0; // reinicia o processo
                 }
             }
 
-            
             bool incluirSimbolos = PerguntarSimNao("Deseja incluir caracteres especiais (ex: @, !, #, -)? (s/n)");
-
-            
             bool incluirLetras = PerguntarSimNao("Deseja incluir números e letras? (s para sim, n para números apenas)");
 
-           
             string senhaGerada = GerarSenha(tamanhoSenha, incluirSimbolos, incluirLetras);
 
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Senha Gerada: {senhaGerada}");
+            Console.ResetColor();
 
-            // salva a senha no arquivo do trem
+
             SalvarSenhaNoBackup(senhaGerada);
 
             if (PerguntarSimNao("Deseja recuperar as senhas geradas anteriormente? (s/n)"))
@@ -47,26 +57,23 @@ class GeradorDeSenhas
                 RecuperarSenhasDoBackup();
             }
 
-            
             if (!PerguntarSimNao("Deseja gerar outra senha? (s/n)"))
             {
-                
                 if (PerguntarSimNao("Deseja recomeçar o programa? (s/n)"))
                 {
-                    ExecutarPrograma(); // reinicia o programa chamando a funçao dnv
-                    break; // break aq so sai do loop atual, mas o programa reinicia
+                    ExecutarPrograma(); // reinicia o troço
+                    break; // sai do loop de agr
                 }
                 else
                 {
                     Console.WriteLine("Encerrando o programa. Pressione qualquer tecla para sair...");
                     Console.ReadKey();
-                    break; // encerra o trem
+                    break; // encerra o programa ne
                 }
             }
         }
     }
 
-    
     static bool PerguntarSimNao(string pergunta)
     {
         while (true)
@@ -83,12 +90,14 @@ class GeradorDeSenhas
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Resposta inválida! Por favor, digite 's' para sim ou 'n' para não.");
+                Console.ResetColor();
             }
         }
     }
 
-    // Função para gerar a senha com base nas escolhas do usuário
+    // funçao para gerar a senha com base nas escolhas do caba
     static string GerarSenha(int tamanho, bool incluirSimbolos, bool incluirLetras)
     {
         const string caracteresNumeros = "0123456789";
@@ -118,23 +127,25 @@ class GeradorDeSenhas
         return new string(senha);
     }
 
-    // Função para salvar a senha no arquivo de backup
+  
     static void SalvarSenhaNoBackup(string senha)
     {
         string caminhoArquivo = "bkp.TXT";
         
-        // Salva a senha gerada no arquivo de backup
+       
         File.AppendAllText(caminhoArquivo, senha + Environment.NewLine);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("Senha salva no arquivo bkp.TXT");
+        Console.ResetColor();
     }
 
-    // Função para recuperar senhas do arquivo de backup
     static void RecuperarSenhasDoBackup()
     {
         string caminhoArquivo = "bkp.TXT";
 
         if (File.Exists(caminhoArquivo))
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Senhas geradas previamente:");
             string[] senhas = File.ReadAllLines(caminhoArquivo);
 
@@ -142,10 +153,25 @@ class GeradorDeSenhas
             {
                 Console.WriteLine(senha);
             }
+            Console.ResetColor();
         }
         else
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Nenhuma senha gerada previamente encontrada.");
+            Console.ResetColor();
         }
+    }
+
+    // Função para simular a animação de carregamento
+    static void AnimacaoCarregando()
+    {
+        Console.Write("Carregando");
+        for (int i = 0; i < 3; i++)  
+        {
+            System.Threading.Thread.Sleep(500); 
+            Console.Write(".");
+        }
+        Console.WriteLine();
     }
 }

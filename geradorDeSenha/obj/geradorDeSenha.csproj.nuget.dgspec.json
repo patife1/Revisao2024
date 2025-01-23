@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj": {}
+    "c:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj": {
+    "c:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj",
+        "projectUniqueName": "c:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj",
         "projectName": "geradorDeSenha",
-        "projectPath": "C:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj",
+        "projectPath": "c:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\geradorDeSenha.csproj",
         "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\obj\\",
+        "outputPath": "c:\\Users\\Aluno\\Documents\\izabelly\\Revisao2024\\geradorDeSenha\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
